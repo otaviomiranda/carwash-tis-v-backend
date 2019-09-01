@@ -1,0 +1,27 @@
+<div padding class="bg-primary h-100">
+  <div class="main-content">
+    <h2>Car Wash</h2>
+    <p>
+      Mantenha seu veículo limpo com praticidade e segurança, aonde você
+      estiver!
+    </p>
+    <div>
+      <h2 class="text-secondary">Bem vindo</h2>
+      <ion-item class="input-item-filled">
+        <ion-input type="email" placeholder="E-mail" name="email" [(ngModel)]="person.email"></ion-input>
+      </ion-item>
+      <ion-item class="input-item-filled">
+        <ion-input type="password" placeholder="Senha" [(ngModel)]="person.password" name="password" maxlength="15">
+        </ion-input>
+      </ion-item>
+      <button ion-button class="btn-secondary btn btn-large" (click)="login()">
+        Acessar
+      </button>
+
+      <button ion-button class="btn-outline btn btn-large mt-5" (click)="goToPage('PagesCreateAccountPage')">
+          Criar conta
+        </button>
+    </div>
+  </div>
+ 
+</div>

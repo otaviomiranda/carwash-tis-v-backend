@@ -1,0 +1,27 @@
+<ion-header class="bg-ligth">
+  <ion-navbar>
+      <ion-title>
+         Cadastre seu carro
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-ligth h-100">
+  <div padding>
+    <div class="text-center p-2 mt-3">
+      <ion-item class="input-item-filled mt-3">
+        <ion-input type="text" placeholder="Modelo" name="model" [(ngModel)]="car.model" maxlength="45"></ion-input>
+      </ion-item>
+      <ion-item class="input-item-filled">
+        <ion-datetime placeholder="Ano" displayFormat="YYYY" [(ngModel)]="car.year" name="year" doneText="Ok"
+        cancelText="Cancelar"></ion-datetime>
+      </ion-item>
+      <ion-item class="input-item-filled">
+        <ion-input type="text" placeholder="Placa" name="plate" [(ngModel)]="car.plate"
+          onkeyup="this.value = this.value.toUpperCase();" [brmasker]="{mask:'000-0000', len:8}"></ion-input>
+      </ion-item>
+    </div>
+    <button ion-button class="btn-secondary btn w-100 mt-3" (click)="createCar()">Cadastrar</button>
+  </div>
+
+</ion-content>

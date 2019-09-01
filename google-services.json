@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1049271152013",
+    "firebase_url": "https://carwash-efb5d.firebaseio.com",
+    "project_id": "carwash-efb5d",
+    "storage_bucket": "carwash-efb5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049271152013:android:ae6855a987aceee0",
+        "android_client_info": {
+          "package_name": "com.tis.carwahs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049271152013-ok0bkvg88bkv3oe8622bo8jl45ij9hne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOGoxy1zHUyxXCS0WD0nKbUaJsA6tQdXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049271152013-ok0bkvg88bkv3oe8622bo8jl45ij9hne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

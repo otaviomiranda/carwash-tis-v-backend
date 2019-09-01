@@ -1,0 +1,29 @@
+<ion-header class="bg-ligth">
+  <ion-navbar>
+    <ion-title>Seus carros</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only  (click)="goTo('PagesCreateCarPage')">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card *ngFor="let car of cars">
+
+        <ion-card-header style="color: #fff; background: #445a64;
+        font-weight: 700;">
+            <ion-icon name="car" item-start style="    background: #ffffff;
+            padding: 7px 9px;
+            border-radius: 50%;
+            color: #445a64;
+            margin-right: 9px;"></ion-icon>
+            {{car.plate}}
+        </ion-card-header>
+
+      
+      </ion-card>
+
+</ion-content>
