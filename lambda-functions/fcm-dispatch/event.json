@@ -1,0 +1,16 @@
+{
+    "payload": {
+        "notification": {
+            "title": "FCM Dispatch",
+            "body": "Essa mensagem foi envida pelo serviço FCM dispatch"
+        },
+        "data": {
+            "title": "FCM Dispatch",
+            "body": "Essa mensagem foi envida pelo serviço FCM dispatch",
+            "person_id": "1",
+            "customer_id": "2",
+            "car_id": "1"
+        }
+    },
+    "topic": "testTopic"
+}

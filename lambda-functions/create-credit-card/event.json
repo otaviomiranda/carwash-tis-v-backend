@@ -1,0 +1,8 @@
+{
+"credit_card_number":"1111222233334444",
+"expiration_date": "2020-12-31",
+"cardholder": "Fulano de Tal",
+"cvv": "123",
+"flag": "Mastercard",
+"customer_fk": 1
+}
