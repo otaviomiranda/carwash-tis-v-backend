@@ -31,17 +31,10 @@ function createCreditCard() {
 		INSERT INTO 
 			credit_card
 			(credit_card_number, expiration_date, cardholder, cvv, flag, customer_fk)
-		VALUES (
-			"${request.credit_card_number}",
-			"${request.expiration_date}",
-			"${request.cardholder}",
-			"${request.cvv}",
-			"${request.flag}",
-			"${request.customer_fk}"
-		)
+		VALUES (?,?,?,?,?,?)
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql, [request.credit_card_number, request.expiration_date, request.cardholder, request.cvv, request.flag, request.customer_fk], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)

@@ -37,10 +37,10 @@ function getService() {
 			is_finalized
 		FROM service 
 		WHERE 
-			service_id = "${request.service_id}"
+			service_id = ?
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql, [request.service_id], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)

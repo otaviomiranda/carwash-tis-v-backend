@@ -30,10 +30,10 @@ function createCar() {
 	let sql = `
 		SELECT car_id, model, plate, year 
 		FROM cars 
-		WHERE customer_id = ${request.customer_id}
+		WHERE customer_id = ?
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql, [request.customer_id], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)

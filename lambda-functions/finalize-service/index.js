@@ -30,17 +30,17 @@ function finalizeService() {
 	UPDATE  
 		service
 		SET is_finalized = "1"
-		WHERE service_id ="${request.service_id}"`
+		WHERE service_id = ?`
 
-data_conn.query(sql, function (err, result) {
-	if (err) {
-		console.log(err)
-		endExecute(JSON.stringify({ err, stack: err.stack }), true)
-	} else {
-		endExecute({ result })
-	}
-})
-	
+	data_conn.query(sql, [request.service_id], function (err, result) {
+		if (err) {
+			console.log(err)
+			endExecute(JSON.stringify({ err, stack: err.stack }), true)
+		} else {
+			endExecute({ result })
+		}
+	})
+
 
 }
 

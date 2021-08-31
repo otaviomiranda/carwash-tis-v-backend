@@ -30,17 +30,17 @@ function disableAccount() {
 	UPDATE  
 		checking_account
 		SET is_enabled ="0"
-		WHERE checking_account_id ="${request.checking_account_id}"`
+		WHERE checking_account_id = ?`
 
-data_conn.query(sql, function (err, result) {
-	if (err) {
-		console.log(err)
-		endExecute(JSON.stringify({ err, stack: err.stack }), true)
-	} else {
-		endExecute({ result })
-	}
-})
-	
+	data_conn.query(sql, [request.checking_account_id], function (err, result) {
+		if (err) {
+			console.log(err)
+			endExecute(JSON.stringify({ err, stack: err.stack }), true)
+		} else {
+			endExecute({ result })
+		}
+	})
+
 
 }
 

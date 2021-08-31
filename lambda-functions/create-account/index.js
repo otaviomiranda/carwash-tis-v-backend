@@ -31,19 +31,11 @@ function createAccount() {
 		INSERT INTO 
 			person
 			(first_name, last_name, birth_date, phone, email, password, cpf, is_customer)
-		VALUES (
-			"${request.first_name}",
-			"${request.last_name}",
-			"${request.birth_date}",
-			"${request.phone}",
-			"${request.email}",
-			"${request.password}",
-			"${request.cpf}",
-			"${request.is_customer}"
-		)
+		VALUES 
+			(?,?,?,?,?,?,?,?)
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql, [request.first_name, request.last_name, request.birth_date,request.phone, request.email, request.password, request.cpf, request.is_customer], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)

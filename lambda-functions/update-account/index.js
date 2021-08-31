@@ -30,16 +30,16 @@ function updateAccount() {
 	let sql = `
 		UPDATE  
 			person
-			SET first_name="${request.first_name}",
-			last_name=	   "${request.last_name}",
-			birth_date=	   "${request.birth_date}",
-			phone=		   "${request.phone}",
-			email=		   "${request.email}",
-			password=	   "${request.password}",
-			cpf=		   "${request.cpf}"
-			WHERE person_id="${request.person_id}"`
+			SET first_name=?,
+			last_name=	   ?,
+			birth_date=	   ?,
+			phone=		   ?,
+			email=		   ?,
+			password=	   ?,
+			cpf=		   ?
+			WHERE person_id=?`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql[request.first_name, request.last_name, request.birth_date, request.phone, request.email, request.password, request.cpf, request.person_id], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute(JSON.stringify({ err, stack: err.stack }), true)

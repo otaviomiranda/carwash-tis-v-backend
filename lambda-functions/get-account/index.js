@@ -36,11 +36,11 @@ function getAccount() {
 			is_customer 
 		FROM person 
 		WHERE 
-			email = "${request.email}"
-			AND password = "${request.password}"
+			email = ?
+			AND password = ?
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql, [request.email, request.password], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)
@@ -48,7 +48,7 @@ function getAccount() {
 			if (result[0])
 				getForeignReference(result[0])
 			else
-				endExecute({err: 'Email and password did not match'}, true)
+				endExecute({ err: 'Email and password did not match' }, true)
 		}
 	})
 
@@ -64,10 +64,10 @@ function getForeignReference(person) {
 			${(type + '_id')} 
 		FROM ${type}
 		WHERE 
-			person_fk = ${id}
+			person_fk = ?
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql, [id], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)

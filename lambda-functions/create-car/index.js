@@ -31,20 +31,16 @@ function createCar() {
 		INSERT 
 			cars
 			(customer_id, model, plate, year)
-		VALUES (
-			${request.customer_id},
-			"${request.model}",
-			"${request.plate}",
-			"${request.year}"
-		)
+		VALUES 
+			(?,?,?,?)
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql[request.customer_id, request.model, request.plate, request.year], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)
 		} else {
-			endExecute({result})
+			endExecute({ result })
 		}
 	})
 

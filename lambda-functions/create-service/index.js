@@ -31,18 +31,10 @@ function createService() {
 		INSERT INTO 
 			service
 			(customer_id, car_id, request_date, payment, service_provider_id, value, status)
-		VALUES (
-			${request.customer_id},
-			${request.car_id},
-			"${request.request_date}",
-			${request.payment},
-			${request.service_provider_id},
-			${request.value},
-			${request.status}
-		)
+		VALUES (?,?,?,?,?,?,?)
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql, [request.customer_id, request.car_id, request.request_date, request.payment, request.service_provider_id, request.value, request.status], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)
@@ -58,7 +50,7 @@ function endExecute(message, had_error = false) {
 	if (data_conn)
 		data_conn.destroy();
 
-		had_error ? response(JSON.stringify({ errorType: 'Bad Request', httpStatus: 404, trace: message })) : response(null, message)
+	had_error ? response(JSON.stringify({ errorType: 'Bad Request', httpStatus: 404, trace: message })) : response(null, message)
 
 	context_global.done();
 }

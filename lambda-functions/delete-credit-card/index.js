@@ -28,17 +28,17 @@ function getDataConnection() {
 function deleteCreditCard() {
 	let sql = `
 		DELETE FROM credit_card
-		WHERE credit_card_id="${request.credit_card_id}"`
+		WHERE credit_card_id= ?`
 
-data_conn.query(sql, function (err, result) {
-	if (err) {
-		console.log(err)
-		endExecute(JSON.stringify({ err, stack: err.stack }), true)
-	} else {
-		endExecute({ result })
-	}
-})
-	
+	data_conn.query(sql, [request.credit_card_id], function (err, result) {
+		if (err) {
+			console.log(err)
+			endExecute(JSON.stringify({ err, stack: err.stack }), true)
+		} else {
+			endExecute({ result })
+		}
+	})
+
 
 }
 

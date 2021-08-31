@@ -31,15 +31,10 @@ function createCheckingAccount() {
 		INSERT INTO 
 			checking_account
 			(service_provider_fk, account, agency, bank)
-		VALUES (
-			"${request.service_provider_fk}",
-			"${request.account}",
-			"${request.agency}",
-			"${request.bank}"
-		)
+		VALUES (?,?,?,?)
 	`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql, [request.service_provider_fk, request.account, request.agency, request.bank], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute({ err, stack: err.stack }, true)

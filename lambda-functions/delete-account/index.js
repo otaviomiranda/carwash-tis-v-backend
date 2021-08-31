@@ -30,14 +30,14 @@ function deleteAccount() {
 	let sql = `
 		DELETE FROM 
 			person
-			WHERE person_id="${request.person_id}"`
+			WHERE person_id = ?`
 
-	data_conn.query(sql, function (err, result) {
+	data_conn.query(sql[request.person_id], function (err, result) {
 		if (err) {
 			console.log(err)
 			endExecute(JSON.stringify({ err, stack: err.stack }), true)
 		} else {
-			endExecute({result})
+			endExecute({ result })
 		}
 	})
 
